@@ -11,14 +11,14 @@ import javax.swing.JOptionPane;
  *
  * @author Parzival
  */
-public class PanelBorderedJava extends javax.swing.JFrame {
+public class AplikasiPenjumlahanDuaAngka extends javax.swing.JFrame {
 
     
 
     /**
      * Creates new form PanelBorderedJava
      */
-    public PanelBorderedJava() {
+    public AplikasiPenjumlahanDuaAngka() {
         initComponents();
     }
 
@@ -43,7 +43,7 @@ public class PanelBorderedJava extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         buttonTambah = new javax.swing.JButton();
         buttonHapus = new javax.swing.JButton();
-        bunttonKeluar = new javax.swing.JButton();
+        buttonKeluar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aplikasi Penjumlahan Dua Angka");
@@ -127,8 +127,8 @@ public class PanelBorderedJava extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(textHasil, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(textHasil, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -157,10 +157,10 @@ public class PanelBorderedJava extends javax.swing.JFrame {
             }
         });
 
-        bunttonKeluar.setText("Keluar");
-        bunttonKeluar.addActionListener(new java.awt.event.ActionListener() {
+        buttonKeluar.setText("Keluar");
+        buttonKeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bunttonKeluarActionPerformed(evt);
+                buttonKeluarActionPerformed(evt);
             }
         });
 
@@ -174,7 +174,7 @@ public class PanelBorderedJava extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(buttonHapus)
                 .addGap(18, 18, 18)
-                .addComponent(bunttonKeluar)
+                .addComponent(buttonKeluar)
                 .addContainerGap(48, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -184,7 +184,7 @@ public class PanelBorderedJava extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonTambah)
                     .addComponent(buttonHapus)
-                    .addComponent(bunttonKeluar))
+                    .addComponent(buttonKeluar))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -199,7 +199,7 @@ public class PanelBorderedJava extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,7 +212,7 @@ public class PanelBorderedJava extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -238,13 +238,13 @@ public class PanelBorderedJava extends javax.swing.JFrame {
         hapus();
     }//GEN-LAST:event_buttonHapusActionPerformed
 
-    private void bunttonKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bunttonKeluarActionPerformed
+    private void buttonKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKeluarActionPerformed
         boolean keluar = JOptionPane.showConfirmDialog(this, "Yakin keluar ?",
                 "Konfirmasi", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
         if (keluar) {
             System.exit(0);
         }
-    }//GEN-LAST:event_bunttonKeluarActionPerformed
+    }//GEN-LAST:event_buttonKeluarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,27 +264,28 @@ public class PanelBorderedJava extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PanelBorderedJava.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AplikasiPenjumlahanDuaAngka.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PanelBorderedJava.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AplikasiPenjumlahanDuaAngka.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PanelBorderedJava.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AplikasiPenjumlahanDuaAngka.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PanelBorderedJava.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AplikasiPenjumlahanDuaAngka.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PanelBorderedJava().setVisible(true);
+                new AplikasiPenjumlahanDuaAngka().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bunttonKeluar;
     private javax.swing.JButton buttonHapus;
+    private javax.swing.JButton buttonKeluar;
     private javax.swing.JButton buttonTambah;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
