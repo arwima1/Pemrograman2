@@ -35,18 +35,18 @@
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="textCelcius" max="32767" attributes="0"/>
-                  <Component id="jButton1" pref="92" max="32767" attributes="0"/>
+                  <Component id="buttonConvert" pref="92" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="celcius" min="-2" pref="96" max="-2" attributes="0"/>
                   <Component id="labelFahrenheit" min="-2" pref="96" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="203" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jButton2" min="-2" pref="73" max="-2" attributes="0"/>
+              <EmptySpace pref="339" max="32767" attributes="0"/>
+              <Component id="buttonKeluar" min="-2" pref="73" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -62,11 +62,11 @@
               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="labelFahrenheit" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="buttonConvert" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButton2" min="-2" pref="33" max="-2" attributes="0"/>
-              <EmptySpace pref="23" max="32767" attributes="0"/>
+              <Component id="buttonKeluar" min="-2" pref="33" max="-2" attributes="0"/>
+              <EmptySpace pref="18" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -75,6 +75,7 @@
     <Component class="javax.swing.JTextField" name="textCelcius">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textCelciusActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textCelciusKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="celcius">
@@ -88,12 +89,12 @@
         <Property name="text" type="java.lang.String" value="Celcius"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="buttonConvert">
       <Properties>
         <Property name="text" type="java.lang.String" value="Convert"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonConvertActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="labelFahrenheit">
@@ -105,12 +106,16 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="labelFahrenheitActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="labelFahrenheitKeyTyped"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="buttonKeluar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Keluar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonKeluarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

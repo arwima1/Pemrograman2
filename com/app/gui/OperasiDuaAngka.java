@@ -5,6 +5,7 @@
  */
 package com.app.gui;
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -53,8 +54,19 @@ public class OperasiDuaAngka extends javax.swing.JFrame {
                 textAngkaPertamaActionPerformed(evt);
             }
         });
+        textAngkaPertama.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textAngkaPertamaKeyTyped(evt);
+            }
+        });
 
         textOperasi.setText("   +");
+
+        textAngkaKedua.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textAngkaKeduaKeyTyped(evt);
+            }
+        });
 
         jLabel2.setText("=");
 
@@ -178,8 +190,8 @@ public class OperasiDuaAngka extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKeluarActionPerformed
-         boolean keluar = JOptionPane.showConfirmDialog(this, "Yakin keluar ?",
-            "Konfirmasi", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
+        boolean keluar = JOptionPane.showConfirmDialog(this, "Yakin keluar ?",
+                "Konfirmasi", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
         if (keluar) {
             System.exit(0);
         }
@@ -190,48 +202,71 @@ public class OperasiDuaAngka extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonTambahActionPerformed
 
     private void buttonKurangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKurangActionPerformed
-       String strAngkaPertama = textAngkaPertama.getText();
-       String strAngkaKedua = textAngkaKedua.getText();
-       int angkaPertama = Integer.valueOf(strAngkaPertama);
-       int angkaKedua = Integer.valueOf(strAngkaKedua);
-       int hasil = angkaPertama - angkaKedua;
-       textHasil.setText(String.valueOf(hasil));
-       textOperasi.setText("-");
+        String strAngkaPertama = textAngkaPertama.getText();
+        String strAngkaKedua = textAngkaKedua.getText();
+        int angkaPertama = Integer.valueOf(strAngkaPertama);
+        int angkaKedua = Integer.valueOf(strAngkaKedua);
+        int hasil = angkaPertama - angkaKedua;
+        textHasil.setText(String.valueOf(hasil));
+        textOperasi.setText("-");
     }//GEN-LAST:event_buttonKurangActionPerformed
 
     private void buttonKaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKaliActionPerformed
-       String strAngkaPertama = textAngkaPertama.getText();
-       String strAngkaKedua = textAngkaKedua.getText();
-       int angkaPertama = Integer.valueOf(strAngkaPertama);
-       int angkaKedua = Integer.valueOf(strAngkaKedua);
-       int hasil = angkaPertama * angkaKedua;
-       textHasil.setText(String.valueOf(hasil));
-       textOperasi.setText("*");
+        String strAngkaPertama = textAngkaPertama.getText();
+        String strAngkaKedua = textAngkaKedua.getText();
+        int angkaPertama = Integer.valueOf(strAngkaPertama);
+        int angkaKedua = Integer.valueOf(strAngkaKedua);
+        int hasil = angkaPertama * angkaKedua;
+        textHasil.setText(String.valueOf(hasil));
+        textOperasi.setText("*");
     }//GEN-LAST:event_buttonKaliActionPerformed
 
     private void buttonBagiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBagiActionPerformed
-       String strAngkaPertama = textAngkaPertama.getText();
-       String strAngkaKedua = textAngkaKedua.getText();
-       double angkaPertama = Integer.valueOf(strAngkaPertama);
-       double angkaKedua = Integer.valueOf(strAngkaKedua);
-       double hasil = angkaPertama / angkaKedua;
-        
-       textHasil.setText(String.valueOf(hasil));
-       
-       textOperasi.setText("/");
+        String strAngkaPertama = textAngkaPertama.getText();
+        String strAngkaKedua = textAngkaKedua.getText();
+        double angkaPertama = Integer.valueOf(strAngkaPertama);
+        double angkaKedua = Integer.valueOf(strAngkaKedua);
+        double hasil = angkaPertama / angkaKedua;
+
+        if (angkaKedua == 0) {
+            textHasil.setText("Error");
+        } else {
+            textHasil.setText(String.valueOf(hasil));
+        }
+
+        textOperasi.setText("/");
     }//GEN-LAST:event_buttonBagiActionPerformed
 
     private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
-       textAngkaPertama.setText("");
-       textAngkaKedua.setText("");
-       textHasil.setText("");
-       textOperasi.setText("+");
-       textAngkaPertama.requestFocus();
+        textAngkaPertama.setText("");
+        textAngkaKedua.setText("");
+        textHasil.setText("");
+        textOperasi.setText("+");
+        textAngkaPertama.requestFocus();
     }//GEN-LAST:event_buttonHapusActionPerformed
 
     private void textAngkaPertamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textAngkaPertamaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textAngkaPertamaActionPerformed
+
+    private void textAngkaPertamaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textAngkaPertamaKeyTyped
+        char c = evt.getKeyChar();
+
+        if (!(Character.isDigit(c)
+                || c == KeyEvent.VK_BACK_SPACE
+                || c == KeyEvent.VK_DELETE)) {
+            getToolkit().beep();
+            JOptionPane.showConfirmDialog(null, "Input hanya 0-9!", "Error!!!", 
+                    JOptionPane.CLOSED_OPTION);
+            evt.consume();
+        }
+    }//GEN-LAST:event_textAngkaPertamaKeyTyped
+
+    private void textAngkaKeduaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textAngkaKeduaKeyTyped
+        char c = evt.getKeyChar();
+        
+        
+    }//GEN-LAST:event_textAngkaKeduaKeyTyped
 
     /**
      * @param args the command line arguments
@@ -287,11 +322,11 @@ public class OperasiDuaAngka extends javax.swing.JFrame {
         String strAngkaPertama = textAngkaPertama.getText();
         String strAngkaKedua = textAngkaKedua.getText();
         int angkaPertama = Integer.valueOf(strAngkaPertama);
-        int angkaKedua =  Integer.valueOf(strAngkaKedua);
+        int angkaKedua = Integer.valueOf(strAngkaKedua);
         int hasil = angkaPertama + angkaKedua;
-        
+
         textHasil.setText(String.valueOf(hasil));
         textOperasi.setText("+");
-        
+
     }
 }

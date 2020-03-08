@@ -5,7 +5,9 @@
  */
 package com.app.gui;
 
+import java.awt.event.KeyEvent;
 import javax.swing.JColorChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,9 +34,9 @@ public class ConvertSuhu extends javax.swing.JFrame {
         jToggleButton1 = new javax.swing.JToggleButton();
         textCelcius = new javax.swing.JTextField();
         celcius = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        buttonConvert = new javax.swing.JButton();
         labelFahrenheit = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        buttonKeluar = new javax.swing.JButton();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -46,15 +48,20 @@ public class ConvertSuhu extends javax.swing.JFrame {
                 textCelciusActionPerformed(evt);
             }
         });
+        textCelcius.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textCelciusKeyTyped(evt);
+            }
+        });
 
         celcius.setBackground(new java.awt.Color(0, 255, 0));
         celcius.setFont(new java.awt.Font("Dialog", 2, 14)); // NOI18N
         celcius.setText("Celcius");
 
-        jButton1.setText("Convert");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonConvert.setText("Convert");
+        buttonConvert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonConvertActionPerformed(evt);
             }
         });
 
@@ -65,8 +72,18 @@ public class ConvertSuhu extends javax.swing.JFrame {
                 labelFahrenheitActionPerformed(evt);
             }
         });
+        labelFahrenheit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                labelFahrenheitKeyTyped(evt);
+            }
+        });
 
-        jButton2.setText("Keluar");
+        buttonKeluar.setText("Keluar");
+        buttonKeluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonKeluarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,15 +93,15 @@ public class ConvertSuhu extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(textCelcius)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE))
+                    .addComponent(buttonConvert, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE))
                 .addGap(62, 62, 62)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(celcius, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelFahrenheit, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(203, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(339, Short.MAX_VALUE)
+                .addComponent(buttonKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(68, 68, 68))
         );
         layout.setVerticalGroup(
@@ -97,16 +114,16 @@ public class ConvertSuhu extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelFahrenheit, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonConvert, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addComponent(buttonKeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void buttonConvertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonConvertActionPerformed
          // TODO add your handling code here:
          
          String Celcius = textCelcius.getText();
@@ -116,17 +133,47 @@ public class ConvertSuhu extends javax.swing.JFrame {
          
          labelFahrenheit.setText(fahrenheit + "  Fahrenheit");
          
-         textCelcius.getText();
          
-    }//GEN-LAST:event_jButton1ActionPerformed
+         
+    }//GEN-LAST:event_buttonConvertActionPerformed
 
     private void textCelciusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCelciusActionPerformed
+       
         
     }//GEN-LAST:event_textCelciusActionPerformed
 
     private void labelFahrenheitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_labelFahrenheitActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_labelFahrenheitActionPerformed
+
+    private void textCelciusKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textCelciusKeyTyped
+        char c = evt.getKeyChar();
+        if (! ((Character.isDigit(c)||
+                c == KeyEvent.VK_BACK_SPACE)||
+                c == KeyEvent.VK_DELETE)) {
+            
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "Input hanya 0-9");
+            evt.consume();
+        }
+        
+        
+    }//GEN-LAST:event_textCelciusKeyTyped
+
+    private void buttonKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKeluarActionPerformed
+         boolean keluar = JOptionPane.showConfirmDialog(this, "Yakin keluar ?","Konfirmasi",
+                 JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
+         
+         if (keluar) {
+            System.exit(0);
+        }
+        
+                
+    }//GEN-LAST:event_buttonKeluarActionPerformed
+
+    private void labelFahrenheitKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_labelFahrenheitKeyTyped
+       
+    }//GEN-LAST:event_labelFahrenheitKeyTyped
 
     /**
      * @param args the command line arguments
@@ -165,11 +212,13 @@ public class ConvertSuhu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonConvert;
+    private javax.swing.JButton buttonKeluar;
     private javax.swing.JLabel celcius;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JTextField labelFahrenheit;
     private javax.swing.JTextField textCelcius;
     // End of variables declaration//GEN-END:variables
+
+   
 }
