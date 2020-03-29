@@ -28,8 +28,14 @@ public class AplikasiDataMahasiswa extends javax.swing.JFrame {
         model = new MahasiswaTableModel(listData);
         tabelMahasiswa.setModel(model);
         setLocationRelativeTo(null);
+        
     }
-
+    
+    public void addData(Mahasiswa mahasiswa){
+        listData.add(mahasiswa);
+        model = new MahasiswaTableModel(listData);
+        tabelMahasiswa.setModel(model);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,10 +47,10 @@ public class AplikasiDataMahasiswa extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelMahasiswa = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        tambahButton = new javax.swing.JButton();
+        ubahButton = new javax.swing.JButton();
+        hapusButton = new javax.swing.JButton();
+        keluarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aplikasi Data Mahasiswa");
@@ -68,29 +74,46 @@ public class AplikasiDataMahasiswa extends javax.swing.JFrame {
         tabelMahasiswa.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tabelMahasiswa);
 
-        jButton1.setText("Tambah");
+        tambahButton.setText("Tambah");
+        tambahButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tambahButtonActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Ubah");
+        ubahButton.setText("Ubah");
+        ubahButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ubahButtonActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Hapus");
+        hapusButton.setText("Hapus");
+        hapusButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hapusButtonActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Keluar");
+        keluarButton.setText("Keluar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tambahButton, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ubahButton, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 286, Short.MAX_VALUE)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(hapusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(keluarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,15 +121,27 @@ public class AplikasiDataMahasiswa extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addContainerGap(95, Short.MAX_VALUE))
+                    .addComponent(keluarButton)
+                    .addComponent(hapusButton)
+                    .addComponent(ubahButton)
+                    .addComponent(tambahButton)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tambahButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahButtonActionPerformed
+        MahasiswaDetail detail = new MahasiswaDetail(this, true);
+        detail.setVisible(true);
+    }//GEN-LAST:event_tambahButtonActionPerformed
+
+    private void ubahButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ubahButtonActionPerformed
+
+    private void hapusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_hapusButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,28 +179,28 @@ public class AplikasiDataMahasiswa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton hapusButton;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton keluarButton;
     private javax.swing.JTable tabelMahasiswa;
+    private javax.swing.JButton tambahButton;
+    private javax.swing.JButton ubahButton;
     // End of variables declaration//GEN-END:variables
 
     private void initData() {
         listData = new ArrayList<>();
         
         Mahasiswa mahasiswa = new Mahasiswa(
-                "43A87006180145", "Arya wijaya kusuma", "Teknik Informatika", "Jln Gunung gede 5", 
-                "081297391775", "arwima@gmail.com");
+                "43A87006180145", "Arya wijaya kusuma", "Teknik Informatika", "Jl Gunung Gede 5", 
+                "083805520705", "arwima99@gmail.com");
         listData.add(mahasiswa);
         
-        mahasiswa = new Mahasiswa("43A87006180111", "Andar lutfianto", "Teknik Mesin", "Jln Ciremai Raya", 
+        mahasiswa = new Mahasiswa("43A87006180111", "Andar Lutfi", "Teknik Mesin", "Jln Ciremai Raya", 
                 "082249933905", "andar11@gmail.com");
         listData.add(mahasiswa);
         
-        mahasiswa = new Mahasiswa("43A87006100200", "Rizky Rafsanzani", "Teknik Mesin", "Jln Poncol 12", 
-                "0812355661", "zani123@gmail.com");
+        mahasiswa = new Mahasiswa("43A87006199123", "Rizky Wahyudi", "Teknik Mesin", "Jln Poncol 12", 
+                "0812355661", "wahyudi123@gmail.com");
         listData.add(mahasiswa);
                 
     }
