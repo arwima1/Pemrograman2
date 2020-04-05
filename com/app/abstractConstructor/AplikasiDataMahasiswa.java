@@ -35,6 +35,26 @@ public class AplikasiDataMahasiswa extends javax.swing.JFrame {
         listData.add(mahasiswa);
         model = new MahasiswaTableModel(listData);
         tabelMahasiswa.setModel(model);
+       
+    }
+    
+    public void updateMahasiswa(Mahasiswa mahasiswa){
+        Mahasiswa mhs = cari(mahasiswa.getNim());
+        if(mhs != null){
+        listData.remove(mhs);
+        listData.add(mahasiswa);
+        model = new MahasiswaTableModel(listData);
+        tabelMahasiswa.setModel(model);
+        }
+    }
+    
+    Mahasiswa cari (String nim){
+        for (Mahasiswa m : listData) {
+            if (m.getNim().equals(nim)) {
+                return m;
+            }
+        }
+     return null;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -136,7 +156,13 @@ public class AplikasiDataMahasiswa extends javax.swing.JFrame {
     }//GEN-LAST:event_tambahButtonActionPerformed
 
     private void ubahButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahButtonActionPerformed
-        // TODO add your handling code here:
+        int index = tabelMahasiswa.getSelectedRow();
+        if (index > -1 ) {
+            String nim = tabelMahasiswa.getValueAt(index, 0).toString();
+            MahasiswaDetail detail = new MahasiswaDetail(this, true, nim);
+            detail.setVisible(true);   
+        }
+        
     }//GEN-LAST:event_ubahButtonActionPerformed
 
     private void hapusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusButtonActionPerformed

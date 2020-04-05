@@ -20,12 +20,20 @@ public class MahasiswaDetail extends javax.swing.JDialog {
      * Creates new form MahasiswaDetail
      */
     public MahasiswaDetail(java.awt.Frame parent, boolean modal) {
-        
         initComponents();
         setLocationRelativeTo(null);
         mainFrame = (AplikasiDataMahasiswa) parent;
         isNew = true;
         mahasiswa = new Mahasiswa();
+    }
+    
+    public MahasiswaDetail(java.awt.Frame parent, boolean modal, String nim) {
+        initComponents();
+        setLocationRelativeTo(null);
+        mainFrame = (AplikasiDataMahasiswa) parent;
+        isNew = false;
+        mahasiswa = mainFrame.cari(nim);
+        populateControl();   
     }
 
     /**
@@ -234,8 +242,23 @@ public class MahasiswaDetail extends javax.swing.JDialog {
             kumpulanData();
             if (isNew) {
                 mainFrame.addData(mahasiswa);
-                dispose();
+                
+            }else{
+                mainFrame.updateMahasiswa(mahasiswa);
             }
+            dispose();
+            JOptionPane.showMessageDialog(rootPane, "Data berhasil disimpan! ");
+            
         }
+    }
+
+    private void populateControl() {
+        textNim.setText(mahasiswa.getNim());
+//        textNim.setText(mahasiswa.getNim());
+//        textNama.setText(mahasiswa.getNama());
+//        textJurusan.setText(mahasiswa.getJurusan());
+//        textAlamat.setText(mahasiswa.getAlamat());
+//        textTelepon.setText(mahasiswa.getNo_telp());
+//        textEmail.setText(mahasiswa.getEmail());
     }
 }
